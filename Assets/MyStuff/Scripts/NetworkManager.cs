@@ -10,8 +10,8 @@ using System.Threading;
 public class NetworkManager : MonoBehaviour
 {
     private string LocalIPAddress = "127.0.0.1";
-    private int ListeningPort = 40000;
-    private int SendingPort = 40001;
+    public int ListeningPort = 40000;
+    public int SendingPort = 40001;
     Thread listener;
     static Queue pQueue = Queue.Synchronized(new Queue()); //this is the message queue, it is thread safe
     static UdpClient udp;
@@ -72,7 +72,7 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
-    private void EndUDP()
+    public void EndUDP()
     {
         if (udp != null)
         {
